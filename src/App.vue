@@ -1,7 +1,10 @@
 <template>
   <div id="app" class="main">
     <TopBar @toggleCollapsed="toggleCollapsed"/>
+    <div class="content">
     <Menu :collapsed="collapsed"/>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -40,6 +43,12 @@ export default {
 .main {
   display: flex;
   flex-direction: column;
+  justify-content: start;
+}
+
+.main .content {
+  display: flex;
+  flex-direction: row;
   justify-content: start;
 }
 </style>

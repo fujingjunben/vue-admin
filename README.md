@@ -1,5 +1,21 @@
 # antd-demo
 
+## 目录说明
+### api
+所有接口方法放到api下面的api.js文件
+
+### net
+网络请求相关的类放到这里
+
+### keys
+常量放到这里
+
+### utils
+工具类放到这里
+
+### store
+全局数据放在这里
+
 ## Project setup
 ```
 npm install
@@ -22,3 +38,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+

@@ -6,9 +6,10 @@
         :inline-collapsed="collapsed"
         mode="inline"
         theme="dark"
+        @click="handleClick"
     >
       <template  v-for="item in menuList" >
-        <a-menu-item v-if="!item.children" :key="item.id">
+        <a-menu-item v-if="!item.children" :key="item.id" >
           <a-icon :type="item.icon"/>
           <span>{{ item.name }}</span>
         </a-menu-item>
@@ -88,7 +89,12 @@ export default {
     }
   },
 
-  methods: {}
+  methods: {
+    handleClick(e) {
+      console.log('click', e);
+      this.$router.push({path: e.key})
+    },
+  }
 
 }
 </script>
