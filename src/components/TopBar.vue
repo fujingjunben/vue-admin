@@ -1,16 +1,15 @@
 <template>
     <div class="mobile-bar">
-      <div class="title">
-        投放管理系统
+      <div class="left-box">
+        <a-button type="primary" style="margin-bottom: 16px" @click="toggleCollapsed">
+          <a-icon :type="collapsed ? 'menu-unfold' : 'menu-fold'"/>
+        </a-button>
+        <b class="title">投放管理系统</b>
       </div>
         <div class="user-info-container">
             <img src="../assets/user_avatar_bg.png" class="avatar-container" >
             <div class="user-info-text-container">
-                <div class="user-nickname-text">{{ nikeName }}</div>
-                <div class="row-box">
-                    <img src="../assets/yunduobi_icon.png" width="15" height="15">
-                    <div class="user-yunduobi-text">云朵币：666</div>
-                </div>
+                <div class="user-nickname-text">{{ nickName }}</div>
             </div>
 
           <button class="switch-account-btn" type="button" v-on:click="accountMethod">{{ isLogin ? "切换账号" : "去登录" }}</button>
@@ -25,7 +24,8 @@ export default {
   data(){
     return {
       nickName: '二郎神',
-      isLogin: false
+      isLogin: false,
+      collapsed: false,
     }
   },
   methods: {
@@ -34,6 +34,12 @@ export default {
 
     login() {
     },
+
+
+    toggleCollapsed(){
+      this.collapsed = !this.collapsed
+      this.$emit("toggleCollapsed", "")
+    }
   }
 }
 </script>
@@ -51,8 +57,8 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-radius: 6px;
-  box-shadow: 3px 5px 3px #F2F2F2;
+  align-content: center;
+  align-items: center;
 }
 
 .user-info-container {
@@ -106,6 +112,12 @@ export default {
 }
 
 .mobile-bar .title {
+  color: white;
+  padding: 10px;
+  font-size: 15px;
 }
 
+.mobile-bar .left-box {
+
+}
 </style>

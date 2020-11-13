@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="main">
-    <TopBar/>
-    <Menu/>
+    <TopBar @toggleCollapsed="toggleCollapsed"/>
+    <Menu :collapsed="collapsed"/>
   </div>
 </template>
 
@@ -14,6 +14,17 @@ export default {
   components: {
     Menu,
     TopBar
+  },
+  data(){
+    return {
+      collapsed: false
+    }
+  },
+
+  methods: {
+    toggleCollapsed(){
+      this.collapsed = !this.collapsed
+    }
   }
 }
 </script>
@@ -25,7 +36,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 .main {
   display: flex;
