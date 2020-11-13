@@ -7,22 +7,22 @@
         mode="inline"
         theme="dark"
     >
-      <div v-for="item in menuList" :key="item.id">
-        <a-menu-item v-if="item.children" :key="item.id">
+      <template  v-for="item in menuList" >
+        <a-menu-item v-if="!item.children" :key="item.id">
           <a-icon :type="item.icon"/>
           <span>{{ item.name }}</span>
         </a-menu-item>
         <a-sub-menu v-else :key="item.id">
           <span slot="title"><a-icon :type="item.icon"/>
             <span>{{ item.name }}</span></span>
-          <div v-for="child in item.children" :key="child.id">
+          <template v-for="child in item.children" >
             <a-menu-item :key="child.id">
               <a-icon :type="child.icon"/>
               <span>{{ child.name }}</span>
             </a-menu-item>
-          </div>
+          </template>
         </a-sub-menu>
-      </div>
+      </template>
 
     </a-menu>
   </div>
@@ -102,5 +102,10 @@ export default {
 
 .left-alignment {
   text-align: start;
+}
+
+.menu .ant-menu-dark.ant-menu-inline, .ant-menu-dark.ant-menu-vertical, .ant-menu-dark.ant-menu-vertical-left, .ant-menu-dark.ant-menu-vertical-right {
+    border-right: 0;
+    height: 100vh;
 }
 </style>
