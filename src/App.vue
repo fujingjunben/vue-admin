@@ -2,7 +2,7 @@
   <div id="app" class="main">
     <TopBar @toggleCollapsed="toggleCollapsed"/>
     <div class="content">
-    <Menu :collapsed="collapsed"/>
+    <Menu :collapsed="collapsed" :menuList="menuList"/>
       <router-view></router-view>
     </div>
   </div>
@@ -11,6 +11,7 @@
 <script>
 import Menu from './components/Menu.vue'
 import TopBar from "@/components/TopBar";
+import Api from "@/api/Api";
 
 export default {
   name: 'App',
@@ -20,13 +21,22 @@ export default {
   },
   data(){
     return {
-      collapsed: false
+      collapsed: false,
+      menuList: []
     }
+  },
+
+  created(){
+    this.getMenuList()
   },
 
   methods: {
     toggleCollapsed(){
       this.collapsed = !this.collapsed
+    },
+
+    getMenuList(){
+      this.menuList = Api.getMenuList()
     }
   }
 }

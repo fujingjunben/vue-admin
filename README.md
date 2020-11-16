@@ -16,6 +16,10 @@
 ### store
 全局数据放在这里
 
+## 代码规范
+1. 文件名驼峰命名
+2. 所有数据从Api.js中获取
+
 ## Project setup
 ```
 npm install

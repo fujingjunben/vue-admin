@@ -1,12 +1,12 @@
 <template>
 <div class="title">
-    sample1
+    5
 </div>
 </template>
 
 <script>
 export default {
-    name: 'sample1',
+    name: 'sample5',
     
 }
 </script>
